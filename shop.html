@@ -1,0 +1,1054 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Rabbi's Garden Bible Shop - Find spiritual books, Bibles, and study materials">
+  <title>Rabbi's Garden - Bible Shop</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;900&family=Poppins:wght@400;600&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    /* Global Styles */
+    :root {
+      --primary-green: #1e8449;
+      --dark-green: #145a32;
+      --light-green: #58d68d;
+      --gold-accent: #f1c40f;
+      --pure-white: #ffffff;
+      --off-white: #f8f9fa;
+      --dark-bg: #1a1a1a;
+      --text-dark: #333333;
+      --transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.1);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      margin: 0;
+      padding: 0;
+      color: var(--text-dark);
+      line-height: 1.8;
+      background-color: var(--pure-white);
+      scroll-behavior: smooth;
+    }
+
+    h1, h2, h3, h4, h5, h6 {
+      font-family: 'Montserrat', sans-serif;
+      color: var(--light-green);
+      font-weight: 700;
+      letter-spacing: -0.5px;
+    }
+
+    a {
+      text-decoration: none;
+      color: var(--primary-green);
+      transition: var(--transition);
+    }
+
+    a:hover {
+      color: var(--light-green);
+    }
+
+    .container {
+      width: 100%;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    section {
+      padding: 100px 0;
+      position: relative;
+    }
+
+    .btn {
+      display: inline-block;
+      background-color: var(--primary-green);
+      color: white;
+      padding: 15px 35px;
+      border: none;
+      border-radius: 50px;
+      font-size: 1.1em;
+      font-weight: 600;
+      cursor: pointer;
+      transition: var(--transition);
+      box-shadow: 0 4px 15px rgba(30, 132, 73, 0.3);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .btn:hover {
+      background-color: var(--light-green);
+      transform: translateY(-3px);
+      box-shadow: 0 10px 25px rgba(88, 214, 141, 0.4);
+    }
+
+    .btn:active {
+      transform: translateY(1px);
+    }
+
+    .btn::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+      transform: translateX(-100%);
+      transition: 0.6s;
+    }
+
+    .btn:hover::after {
+      transform: translateX(100%);
+    }
+
+    /* Navigation */
+    nav {
+      background-color: var(--pure-white);
+      box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      transition: var(--transition);
+    }
+
+    .nav-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.2rem 2rem;
+    }
+
+    .logo {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 900;
+      font-size: 1.8rem;
+      color: var(--primary-green);
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      transition: var(--transition);
+    }
+
+    .logo:hover {
+      transform: scale(1.02);
+    }
+
+    .logo i {
+      margin-right: 10px;
+      color: var(--gold-accent);
+      font-size: 1.2em;
+    }
+
+    .nav-links {
+      display: flex;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    .nav-links li {
+      margin-left: 2.5rem;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: var(--text-dark);
+      font-weight: 600;
+      transition: var(--transition);
+      position: relative;
+      padding: 5px 0;
+      font-size: 1.05rem;
+    }
+
+    .nav-links a.active {
+      color: var(--primary-green);
+    }
+
+    .nav-links a:hover {
+      color: var(--primary-green);
+    }
+
+    .nav-links a:after {
+      content: '';
+      position: absolute;
+      width: 0;
+      height: 3px;
+      bottom: 0;
+      left: 0;
+      background-color: var(--primary-green);
+      transition: var(--transition);
+      border-radius: 3px;
+    }
+
+    .nav-links a:hover:after,
+    .nav-links a.active:after {
+      width: 100%;
+    }
+
+    /* Hamburger menu for mobile */
+    .hamburger {
+      display: none;
+      cursor: pointer;
+      font-size: 1.8rem;
+      color: var(--primary-green);
+      transition: var(--transition);
+    }
+
+    .hamburger:hover {
+      transform: rotate(90deg);
+    }
+
+    /* Bible Shop Section */
+    .bible-shop {
+      padding: 100px 0;
+      background-color: var(--pure-white);
+      text-align: center;
+    }
+
+    .bible-shop h2 {
+      font-size: 2.8rem;
+      margin-bottom: 25px;
+      color: var(--primary-green);
+      position: relative;
+      display: inline-block;
+    }
+
+    .bible-shop h2::after {
+      content: '';
+      position: absolute;
+      bottom: -15px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 80px;
+      height: 4px;
+      background: var(--light-green);
+      border-radius: 2px;
+    }
+
+    .bible-shop p {
+      font-size: 1.1rem;
+      margin-bottom: 40px;
+      color: #666;
+      max-width: 800px;
+      margin-left: auto;
+      margin-right: auto;
+      line-height: 1.8;
+    }
+
+    .shop-image {
+      max-width: 100%;
+      height: auto;
+      border-radius: 15px;
+      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+      margin-bottom: 60px;
+      transition: var(--transition);
+    }
+
+    .shop-image:hover {
+      transform: scale(1.02);
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
+    }
+
+    .newsletter {
+      max-width: 600px;
+      margin: 0 auto;
+      padding: 40px;
+      background-color: var(--off-white);
+      border-radius: 15px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+      transition: var(--transition);
+    }
+
+    .newsletter:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+    }
+
+    .newsletter h3 {
+      margin-bottom: 25px;
+      color: var(--primary-green);
+      font-size: 1.5rem;
+    }
+
+    .input-group {
+      position: relative;
+      margin-bottom: 25px;
+    }
+
+    .newsletter input {
+      width: 100%;
+      padding: 15px 20px;
+      border: 2px solid #ddd;
+      border-radius: 50px;
+      font-size: 1rem;
+      transition: var(--transition);
+    }
+
+    .newsletter input:focus {
+      border-color: var(--light-green);
+      outline: none;
+      box-shadow: 0 5px 15px rgba(88, 214, 141, 0.2);
+    }
+
+    .error-message {
+      color: #e74c3c;
+      margin-top: 10px;
+      text-align: left;
+      font-size: 0.9rem;
+      display: none;
+      padding-left: 20px;
+    }
+
+    .success-message {
+      color: var(--primary-green);
+      margin-top: 20px;
+      text-align: center;
+      font-weight: 600;
+      display: none;
+    }
+
+    /* Custom Alert Styling */
+    .custom-alert {
+      display: none;
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background-color: var(--pure-white);
+      padding: 40px;
+      border-radius: 15px;
+      box-shadow: 0 15px 40px rgba(0,0,0,0.2);
+      z-index: 1000;
+      max-width: 500px;
+      width: 90%;
+      text-align: center;
+      animation: modalFadeIn 0.4s ease-out;
+    }
+
+    .custom-alert h3 {
+      color: var(--primary-green);
+      margin-bottom: 20px;
+      font-size: 1.8rem;
+    }
+
+    .custom-alert p {
+      margin-bottom: 30px;
+      color: #666;
+      line-height: 1.7;
+      font-size: 1.1rem;
+    }
+
+    .alert-btn {
+      background-color: var(--primary-green);
+      color: white;
+      border: none;
+      padding: 12px 30px;
+      border-radius: 50px;
+      cursor: pointer;
+      font-size: 1rem;
+      font-weight: 600;
+      transition: var(--transition);
+      box-shadow: 0 4px 15px rgba(30, 132, 73, 0.3);
+    }
+
+    .alert-btn:hover {
+      background-color: var(--light-green);
+      transform: translateY(-3px);
+      box-shadow: 0 10px 25px rgba(88, 214, 141, 0.4);
+    }
+
+    .overlay {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.7);
+      backdrop-filter: blur(5px);
+      z-index: 999;
+    }
+
+    @keyframes modalFadeIn {
+      from { opacity: 0; transform: translate(-50%, -60%); }
+      to { opacity: 1; transform: translate(-50%, -50%); }
+    }
+
+    /* Back to Top Button */
+    .back-to-top {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      width: 50px;
+      height: 50px;
+      background-color: var(--primary-green);
+      color: white;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      cursor: pointer;
+      opacity: 0;
+      visibility: hidden;
+      transition: var(--transition);
+      z-index: 999;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    }
+
+    .back-to-top.active {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .back-to-top:hover {
+      background-color: var(--light-green);
+      transform: translateY(-5px);
+    }
+
+    /* Footer */
+    footer {
+      background-color: var(--dark-bg);
+      color: white;
+      padding: 80px 0 30px;
+    }
+
+    .footer-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 40px;
+      margin-bottom: 50px;
+    }
+
+    .footer-logo {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 900;
+      font-size: 1.8rem;
+      color: var(--pure-white);
+      margin-bottom: 1.5rem;
+      display: flex;
+      align-items: center;
+    }
+
+    .footer-logo i {
+      margin-right: 10px;
+      color: var(--gold-accent);
+    }
+
+    .footer-about p {
+      margin-bottom: 1.5rem;
+      color: #aaa;
+      line-height: 1.7;
+    }
+
+    .footer-links h3, .footer-social h3 {
+      color: var(--pure-white);
+      margin-bottom: 1.8rem;
+      font-size: 1.3rem;
+      position: relative;
+      padding-bottom: 10px;
+    }
+
+    .footer-links h3:after, .footer-social h3:after {
+      content: '';
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 50px;
+      height: 3px;
+      background-color: var(--gold-accent);
+    }
+
+    .footer-links ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .footer-links li {
+      margin-bottom: 1rem;
+    }
+
+    .footer-links a {
+      color: #aaa;
+      text-decoration: none;
+      transition: var(--transition);
+      display: inline-block;
+    }
+
+    .footer-links a:hover {
+      color: var(--light-green);
+      transform: translateX(5px);
+    }
+
+    .social-icons {
+      display: flex;
+      gap: 1.2rem;
+    }
+
+    .social-icons a {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 45px;
+      height: 45px;
+      background-color: transparent;
+      border-radius: 50%;
+      color: var(--light-green);
+      border: 2px solid var(--light-green);
+      transition: var(--transition);
+      font-size: 1.2rem;
+    }
+
+    .social-icons a:hover {
+      background-color: var(--light-green);
+      color: var(--dark-bg);
+      transform: translateY(-5px) scale(1.1);
+    }
+
+    .footer-bottom {
+      text-align: center;
+      padding-top: 30px;
+      border-top: 1px solid #333;
+      color: #777;
+      font-size: 0.9rem;
+    }
+
+    .footer-bottom a {
+      color: var(--light-green);
+      font-weight: 600;
+    }
+
+    /* Privacy Policy Modal */
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 2000;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      overflow: auto;
+      background-color: rgba(0,0,0,0.8);
+      backdrop-filter: blur(5px);
+    }
+
+    .modal-content {
+      background-color: var(--pure-white);
+      margin: 5% auto;
+      padding: 40px;
+      border-radius: 15px;
+      width: 80%;
+      max-width: 800px;
+      box-shadow: 0 15px 40px rgba(0,0,0,0.2);
+      position: relative;
+      animation: modalFadeIn 0.4s ease-out;
+    }
+
+    .close {
+      color: #aaa;
+      position: absolute;
+      top: 20px;
+      right: 30px;
+      font-size: 28px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: var(--transition);
+    }
+
+    .close:hover {
+      color: var(--primary-green);
+      transform: rotate(90deg);
+    }
+
+    /* Responsive Design */
+    @media (max-width: 992px) {
+      .bible-shop h2 {
+        font-size: 2.5rem;
+      }
+      
+      .bible-shop h2::after {
+        width: 60px;
+        height: 3px;
+        bottom: -12px;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .nav-container {
+        padding: 1rem;
+      }
+
+      .nav-links {
+        display: none;
+        position: absolute;
+        top: 80px;
+        left: 0;
+        width: 100%;
+        background-color: var(--pure-white);
+        flex-direction: column;
+        padding: 1.5rem 0;
+        box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+      }
+
+      .nav-links.show {
+        display: flex;
+      }
+
+      .nav-links li {
+        margin: 0;
+        text-align: center;
+        padding: 0.8rem 0;
+      }
+
+      .hamburger {
+        display: block;
+      }
+
+      .bible-shop h2 {
+        font-size: 2.2rem;
+      }
+      
+      .bible-shop p {
+        font-size: 1rem;
+      }
+      
+      .newsletter {
+        padding: 30px 20px;
+      }
+      
+      .btn, .alert-btn {
+        padding: 12px 30px;
+        font-size: 1rem;
+      }
+    }
+
+    @media (max-width: 576px) {
+      .bible-shop h2 {
+        font-size: 2rem;
+      }
+      
+      .footer-container {
+        grid-template-columns: 1fr;
+        gap: 30px;
+      }
+      
+      .social-icons {
+        justify-content: center;
+      }
+      
+      .footer-links h3:after, 
+      .footer-social h3:after {
+        left: 50%;
+        transform: translateX(-50%);
+      }
+      
+      .back-to-top {
+        width: 40px;
+        height: 40px;
+        font-size: 1.2rem;
+        bottom: 20px;
+        right: 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Navigation -->
+  <nav>
+    <div class="nav-container container">
+      <a href="index.html" class="logo">
+        <i class="fas fa-leaf"></i>Rabbi's Garden
+      </a>
+      <div class="hamburger">☰</div>
+      <ul class="nav-links" id="nav-menu">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="donations.html">Donations</a></li>
+        <li><a href="sermons.html">Sermons</a></li>
+        <li><a href="shop.html" class="active">Shop</a></li>
+        <li><a href="contacts.html">Contacts</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Bible Shop Section -->
+  <section class="bible-shop">
+    <div class="container">
+      <h2>Bible Shop - Coming Soon!</h2>
+      <p>We're excited to announce the opening of our Bible shop. Stay tuned for a wide selection of Bibles, study guides, and more!</p>
+
+      <!-- Shop Image -->
+      <img src="https://images.unsplash.com/photo-1589998059171-988d887df646?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Bibles on display in a shop" class="shop-image">
+
+      <!-- Newsletter Signup -->
+      <div class="newsletter">
+        <h3>Get Notified When We Launch</h3>
+        <div class="input-group">
+          <input type="email" id="email-input" placeholder="Enter your email" required>
+          <div class="error-message" id="email-error"></div>
+        </div>
+        <button id="notify-btn" class="btn">Notify Me</button>
+        <div class="success-message" id="success-message"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Custom Alert -->
+  <div class="overlay" id="overlay"></div>
+  <div class="custom-alert" id="custom-alert">
+    <h3>Thank You!</h3>
+    <p id="alert-message">We'll notify you when our Bible shop launches.</p>
+    <button class="alert-btn" id="alert-btn">OK</button>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="footer-container">
+        <div class="footer-about">
+          <div class="footer-logo">
+            <i class="fas fa-leaf"></i>Rabbi's Garden
+          </div>
+          <p>A community-based initiative dedicated to sharing the transformative power of the Bible with the world.</p>
+          <p>Join Us in Spreading the Word: Become a Part of Our Bible Community!</p>
+        </div>
+        
+        <div class="footer-links">
+          <h3>Quick Links</h3>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="donations.html">Donations</a></li>
+            <li><a href="sermons.html">Sermons</a></li>
+            <li><a href="shop.html">Shop</a></li>
+            <li><a href="contacts.html">Contacts</a></li>
+          </ul>
+        </div>
+        
+        <div class="footer-social">
+          <h3>Connect With Us</h3>
+          <div class="social-icons">
+            <a href="https://www.instagram.com/rabbisgarden/" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="https://www.tiktok.com/@rabbis.garden" target="_blank" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+            <a href="https://www.youtube.com/@mikewuertemburg2204" target="_blank" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+          </div>
+          <p style="margin-top: 1.5rem; color: #aaa;">Follow our journey and see the impact of your support.</p>
+        </div>
+      </div>
+      
+      <div class="footer-bottom">
+        <p>&copy; <span id="current-year"></span> Rabbi's Garden. All rights reserved. | <a href="#" id="privacy-link">Privacy Policy</a></p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Back to Top Button -->
+  <div class="back-to-top" id="backToTop">
+    <i class="fas fa-arrow-up"></i>
+  </div>
+
+  <!-- Privacy Policy Modal -->
+  <div id="privacyModal" class="modal">
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <h2>Privacy Policy</h2>
+      <p><strong>Last Updated: <span id="policy-date"></span></strong></p>
+      
+      <h3>1. Information We Collect</h3>
+      <p>We may collect personal information such as your name, email address, phone number, and payment details when you make a donation, purchase from our shop, or contact us.</p>
+      
+      <h3>2. How We Use Your Information</h3>
+      <p>We use the information we collect to:</p>
+      <ul>
+        <li>Process donations and purchases</li>
+        <li>Respond to your inquiries</li>
+        <li>Send you updates about our ministry (if you opt-in)</li>
+        <li>Improve our services</li>
+      </ul>
+      
+      <h3>3. Information Sharing</h3>
+      <p>We do not sell or share your personal information with third parties except as necessary to process payments or when required by law.</p>
+      
+      <h3>4. Data Security</h3>
+      <p>We implement appropriate security measures to protect your personal information. However, no internet transmission is 100% secure.</p>
+      
+      <h3>5. Your Rights</h3>
+      <p>You may request access to, correction of, or deletion of your personal information by contacting us.</p>
+      
+      <h3>6. Changes to This Policy</h3>
+      <p>We may update this policy periodically. The updated version will be posted on our website with a new "Last Updated" date.</p>
+      
+      <h3>7. Contact Us</h3>
+      <p>If you have questions about this privacy policy, please contact us through our <a href="contacts.html">Contacts page</a>.</p>
+    </div>
+  </div>
+
+  <script>
+    // Mobile Navigation Toggle
+    const hamburger = document.querySelector('.hamburger');
+    const navMenu = document.getElementById('nav-menu');
+    
+    hamburger.addEventListener('click', () => {
+      navMenu.classList.toggle('show');
+    });
+
+    // Close mobile menu when clicking on a link
+    document.querySelectorAll('.nav-links a').forEach(link => {
+      link.addEventListener('click', () => {
+        navMenu.classList.remove('show');
+      });
+    });
+
+    // Set current year in footer
+    document.getElementById('current-year').textContent = new Date().getFullYear();
+    
+    // Set privacy policy date
+    document.getElementById('policy-date').textContent = new Date().toLocaleDateString('en-US', {
+      year: 'numeric', 
+      month: 'long', 
+      day: 'numeric'
+    });
+
+    // Notification System
+    const emailInput = document.getElementById('email-input');
+    const notifyBtn = document.getElementById('notify-btn');
+    const customAlert = document.getElementById('custom-alert');
+    const overlay = document.getElementById('overlay');
+    const alertMessage = document.getElementById('alert-message');
+    const alertBtn = document.getElementById('alert-btn');
+    const emailError = document.getElementById('email-error');
+    const successMessage = document.getElementById('success-message');
+
+    // Enhanced email validation with more checks
+    const validateEmail = (email) => {
+      // Basic regex pattern
+      const re = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+      
+      // Check basic pattern
+      if (!re.test(email)) {
+        return { valid: false, message: 'Please enter a valid email address' };
+      }
+      
+      // Check for common fake email patterns
+      const fakePatterns = [
+        { pattern: /^test/i, message: 'Test emails are not accepted' },
+        { pattern: /^example/i, message: 'Example emails are not accepted' },
+        { pattern: /^fake/i, message: 'Fake emails are not accepted' },
+        { pattern: /^temp/i, message: 'Temporary emails are not accepted' },
+        { pattern: /123$/, message: 'Suspicious email pattern detected' },
+        { pattern: /@test\./i, message: 'Test domain emails are not accepted' },
+        { pattern: /@example\./i, message: 'Example domain emails are not accepted' },
+        { pattern: /\.local$/i, message: 'Local domain emails are not accepted' },
+        { pattern: /\.test$/i, message: 'Test domain emails are not accepted' },
+        { pattern: /@mailinator\./i, message: 'Disposable emails are not accepted' },
+        { pattern: /@guerrillamail\./i, message: 'Disposable emails are not accepted' },
+        { pattern: /@temp-mail\./i, message: 'Disposable emails are not accepted' },
+        { pattern: /@yopmail\./i, message: 'Disposable emails are not accepted' }
+      ];
+      
+      // Check for disposable email domains
+      const disposableDomains = [
+        'mailinator.com', 'guerrillamail.com', 'temp-mail.org', 
+        'yopmail.com', 'throwawaymail.com', 'fakeinbox.com'
+      ];
+      
+      const domain = email.split('@')[1];
+      if (disposableDomains.includes(domain.toLowerCase())) {
+        return { valid: false, message: 'Disposable email addresses are not accepted' };
+      }
+      
+      // Check against fake patterns
+      for (const item of fakePatterns) {
+        if (item.pattern.test(email)) {
+          return { valid: false, message: item.message };
+        }
+      }
+      
+      // Additional checks
+      if (email.length > 254) {
+        return { valid: false, message: 'Email address is too long' };
+      }
+      
+      if (email.split('@')[0].length > 64) {
+        return { valid: false, message: 'Email username is too long' };
+      }
+      
+      return { valid: true };
+    };
+
+    // Store emails in localStorage with timestamp
+    const storeEmail = (email) => {
+      let subscribers = JSON.parse(localStorage.getItem('bibleShopSubscribers')) || [];
+      
+      // Check if email already exists
+      const existingSubscriber = subscribers.find(sub => sub.email.toLowerCase() === email.toLowerCase());
+      
+      if (!existingSubscriber) {
+        subscribers.push({
+          email: email,
+          timestamp: new Date().toISOString(),
+          notified: false
+        });
+        localStorage.setItem('bibleShopSubscribers', JSON.stringify(subscribers));
+        return { isNew: true, count: subscribers.length };
+      }
+      
+      return { isNew: false, count: subscribers.length };
+    };
+
+    // Show custom alert
+    const showAlert = (message) => {
+      alertMessage.textContent = message;
+      customAlert.style.display = 'block';
+      overlay.style.display = 'block';
+      document.body.style.overflow = 'hidden';
+    };
+
+    // Hide custom alert
+    const hideAlert = () => {
+      customAlert.style.display = 'none';
+      overlay.style.display = 'none';
+      document.body.style.overflow = 'auto';
+    };
+
+    // Show success message inline
+    const showSuccessMessage = (message) => {
+      successMessage.textContent = message;
+      successMessage.style.display = 'block';
+      setTimeout(() => {
+        successMessage.style.display = 'none';
+      }, 5000);
+    };
+
+    // Notification button click handler
+    notifyBtn.addEventListener('click', () => {
+      const email = emailInput.value.trim();
+      emailError.style.display = 'none';
+      
+      if (!email) {
+        emailError.textContent = 'Please enter your email address';
+        emailError.style.display = 'block';
+        emailInput.focus();
+        return;
+      }
+      
+      const validation = validateEmail(email);
+      if (!validation.valid) {
+        emailError.textContent = validation.message;
+        emailError.style.display = 'block';
+        emailInput.focus();
+        return;
+      }
+      
+      // Store the email
+      const subscriptionResult = storeEmail(email);
+      
+      // Show appropriate message
+      if (subscriptionResult.isNew) {
+        showAlert(`Thank you for subscribing, ${email.split('@')[0]}! We'll notify you when our Bible shop launches. You're subscriber #${subscriptionResult.count}!`);
+        showSuccessMessage('Thank you for subscribing! Check your email for confirmation.');
+      } else {
+        showAlert(`Welcome back, ${email.split('@')[0]}! You're already on our notification list (subscriber #${subscriptionResult.count}). We'll email you when we launch.`);
+        showSuccessMessage('You are already subscribed! We appreciate your interest.');
+      }
+      
+      // Clear the input
+      emailInput.value = '';
+    });
+
+    // Alert button click handler
+    alertBtn.addEventListener('click', hideAlert);
+    overlay.addEventListener('click', hideAlert);
+
+    // Allow closing with Escape key
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && customAlert.style.display === 'block') {
+        hideAlert();
+      }
+    });
+
+    // Validate email on input change
+    emailInput.addEventListener('input', () => {
+      emailError.style.display = 'none';
+    });
+
+    // Form submission handler (prevent default form behavior)
+    document.querySelector('.newsletter').addEventListener('submit', (e) => {
+      e.preventDefault();
+      notifyBtn.click();
+    });
+
+    // Privacy Policy Modal
+    const modal = document.getElementById('privacyModal');
+    const privacyLink = document.getElementById('privacy-link');
+    const closeBtn = document.querySelector('.close');
+    
+    privacyLink.addEventListener('click', function(e) {
+      e.preventDefault();
+      modal.style.display = 'block';
+    });
+    
+    closeBtn.addEventListener('click', function() {
+      modal.style.display = 'none';
+    });
+    
+    window.addEventListener('click', function(e) {
+      if (e.target === modal) {
+        modal.style.display = 'none';
+      }
+    });
+
+    // Set active navigation link
+    document.addEventListener('DOMContentLoaded', function() {
+      const currentPage = window.location.pathname.split('/').pop() || 'index.html';
+      const navLinks = document.querySelectorAll('.nav-links a');
+      
+      navLinks.forEach(link => {
+        const linkPage = link.getAttribute('href');
+        if (currentPage === linkPage) {
+          link.classList.add('active');
+        } else {
+          link.classList.remove('active');
+        }
+      });
+    });
+
+    // Back to Top Button
+    const backToTopBtn = document.getElementById('backToTop');
+    
+    window.addEventListener('scroll', function() {
+      if (window.pageYOffset > 300) {
+        backToTopBtn.classList.add('active');
+      } else {
+        backToTopBtn.classList.remove('active');
+      }
+    });
+    
+    backToTopBtn.addEventListener('click', function(e) {
+      e.preventDefault();
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
+    });
+
+    // Navbar Scroll Effect
+    window.addEventListener('scroll', () => {
+      const nav = document.querySelector('nav');
+      if (window.scrollY > 50) {
+        nav.style.boxShadow = '0 10px 30px rgba(0, 0, 0, 0.15)';
+      } else {
+        nav.style.boxShadow = '0 5px 20px rgba(0,0,0,0.08)';
+      }
+    });
+  </script>
+</body>
+</html>
